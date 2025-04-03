@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'eternal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'butch_db',
+        'USER':'butch',
+        'PASSWORD':'butch',
+        'HOST':'db',
+        'PORT':'5432'
     }
 }
 
@@ -117,7 +121,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = '/app/static'  # Путь должен совпадать с volume в Nginx
 
+# Media files (если используются)
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = '/app/media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
